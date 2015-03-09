@@ -1,0 +1,12 @@
+let express = require('express');
+let ejs = require('ejs').__express;
+let app = module.exports = express();
+let routes = require(__BASE + '/src/routes');
+app.engine('.html', ejs);
+app.set('views', __BASE + '/src/views');
+app.set('view engine', 'html');
+app.use(routes.businesses);
+app.use(routes.users);
+app.use(routes.auth);
+app.use(routes.errors.unknown);
+app.listen(3000);
