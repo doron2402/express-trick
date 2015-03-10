@@ -1,5 +1,3 @@
 let usersControllers = {};
 
-usersControllers.loginUser = (req, res) {
-
-};
+module.exports = usersControllers;

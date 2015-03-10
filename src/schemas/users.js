@@ -15,10 +15,11 @@ let userSchema = mongoose.Schema({
     required: true,
     trim: true
   },
-  password: {
+  hashed_password: {
     type: String,
     required: true
   },
+  salt: String,
   active: Boolean,
   phone: String,
   followers:{
