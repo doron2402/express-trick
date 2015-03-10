@@ -1,6 +1,7 @@
 let express = require('express');
 let ejs = require('ejs').__express;
 let app = module.exports = express();
+let models = require(__BASE + '/src/models');
 let routes = require(__BASE + '/src/routes');
 app.engine('.html', ejs);
 app.set('views', __BASE + '/src/views');
