@@ -10,6 +10,6 @@ mongoose.connect(`mongodb://${settings.config.mongodb.host}/${settings.config.mo
 let schemas = require(__BASE + '/src/schemas');
 
 let models = {
-  usersModel: require('./users')
+  users: require('./users')
 };
 module.exports = models;
