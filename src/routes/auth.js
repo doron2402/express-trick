@@ -2,15 +2,20 @@ let express = require('express');
 let authRoute = express.Router();
 let mw = require(__BASE + '/src/middlewares');
 let authController = require(__BASE + '/src/controllers').auth;
+let bodyParser = require('body-parser');
+let csrf = require('csurf');
+let csrfProtection = csrf({ cookie: true });
+let parseForm = bodyParser.urlencoded({ extended: false });
 
-authRoute.get('/login', (req, res) => {
+authRoute.get('/login', csrfProtection, (req, res) => {
   res.render('auth/login', {
     title: "EJS example",
-    header: "Some businesses"
+    header: "Some businesses",
+    csrfToken: req.csrfToken()
   });
 });
 
-authRoute.post('/login', mw.auth.checkForEmailAndPasswordInBodyParams, authController.loginUser);
+authRoute.post('/login',parseForm, mw.auth.checkForEmailAndPasswordInBodyParams, authController.loginUser);
 
 authRoute.get('/checkAuth', (req, res) => {
   res.render('auth/login', {

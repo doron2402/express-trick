@@ -1,7 +1,9 @@
 let express = require('express');
 let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
 let expressSession = require('express-session');
 let settings = require(__BASE + '/src/settings');
+
 let ejs = require('ejs').__express;
 let app = module.exports = express();
 let models = require(__BASE + '/src/models');
@@ -10,6 +12,7 @@ app.engine('.html', ejs);
 app.set('views', __BASE + '/src/views');
 app.set('view engine', 'html');
 
+app.use(cookieParser());
 app.use(expressSession({
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored

@@ -1,5 +1,6 @@
 let express = require('express');
 let usersRoute = express.Router();
+let usersController = require(__BASE + '/src/controllers').users;
 let mw = require(__BASE + '/src/middlewares');
 // Dummy users
 let users = [
@@ -31,6 +32,8 @@ usersRoute.get('/signup', (req, res) => {
     header: "Some users"
   });
 });
+
+usersRoute.post('/users/create', mw.users.validateCreateAttributes, usersController.postCreateUser);
 
 // usersRoute.post('/signup', mw.users.validateSignupField, usersController.postSignup);
 

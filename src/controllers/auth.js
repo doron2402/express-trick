@@ -6,7 +6,7 @@ let authenticate = (args, fn) => {
   if (!module.parent) {
     console.log('authenticating %s:%s', args.username, args.password);
   }
-  UserModel.authenticateByUsername(args,fn);
+  return UserModel.loginUser(args, fn);
 }
 
 let restrict = (req, res, next) => {
