@@ -20,6 +20,7 @@ app.use(expressSession({
 }));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(routes.static);
 app.use(routes.pages);
 app.use(routes.businesses);
 app.use(routes.users);

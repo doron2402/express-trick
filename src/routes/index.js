@@ -3,5 +3,6 @@ module.exports = {
   users: require('./users'),
   businesses: require('./businesses'),
   auth: require('./auth'),
-  pages: require('./pages')
+  pages: require('./pages'),
+  static: require('./static')
 };

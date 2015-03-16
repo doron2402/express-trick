@@ -1,10 +1,17 @@
 <% include header.html %>
 
-<h1>Users</h1>
-<ul id="users">
-  <% users.forEach(function(user){ %>
-    <li><%= user.name %> &lt;<%= user.email %>&gt;</li>
-  <% }) %>
-</ul>
+<% include partials/navigations.html %>
+
+<% include partials/headline.html %>
+
+<% include partials/about.html %>
+
+<% include partials/services.html %>
+
+<% include partials/callout.html %>
+
+<% include partials/call_action.html %>
+
+<% include partials/map.html %>
 
 <% include footer.html %>
