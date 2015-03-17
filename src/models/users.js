@@ -24,8 +24,9 @@ let checkForCreateUserParams = (params) => {
 
 userModel.loginUser = (args, cb) => {
   checkForLoginParams(args).then((args) => {
+
     let query = {'username': args.username};
-    if (args.email && !args.username) {
+    if (args.type === 'email' && args.email) {
       query = {'email': args.email};
     }
 

@@ -2,7 +2,6 @@ let authController = {};
 let UserModel = require(__BASE + '/src/models').users;
 
 let authenticate = (args, fn) => {
-  let type = 'username';
   if (!module.parent) {
     console.log('authenticating %s:%s', args.username, args.password);
   }
