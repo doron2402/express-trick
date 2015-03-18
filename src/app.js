@@ -26,8 +26,7 @@ app.use(routes.businesses);
 app.use(routes.users);
 app.use(routes.auth);
 app.use(routes.errors.unknown);
-let PORT = process.env.PORT || settings.config.server.port || 5000;
-app.listen(PORT, err => {
+app.listen(settings.config.server.port, err => {
   if (err){
     console.log(err);
   }
