@@ -25,7 +25,6 @@ app.use(routes.businesses);
 app.use(routes.users);
 app.use(routes.auth);
 app.use(routes.errors.unknown);
-console.log(settings.config.server);
 app.listen(settings.config.server.port, err => {
   if (err){
     console.log(err);
