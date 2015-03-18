@@ -7,6 +7,6 @@ module.exports = {
   },
   server: {
     host: '',
-    port: process.env.PORT
+    port: 5000
   }
 };
