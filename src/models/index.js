@@ -1,6 +1,14 @@
 let mongoose = require('mongoose');
 let settings = require(__BASE + '/src/settings');
-mongoose.connect(`mongodb://${settings.config.mongodb.host}/${settings.config.mongodb.db}`, (err) => {
+let mongoDBUri;
+
+if (${settings.config.mongodb.uri) {
+  mongoDBUri = ${settings.config.mongodb.uri;
+} else {
+  mongoDBUri = `mongodb://${settings.config.mongodb.host}/${settings.config.mongodb.db}`;
+}
+
+mongoose.connect(mongoDBUri, (err) => {
     if (err) {
       throw err;
     }
