@@ -3,7 +3,6 @@ let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let expressSession = require('express-session');
 let settings = require(__BASE + '/src/settings');
-
 let ejs = require('ejs').__express;
 let app = module.exports = express();
 let models = require(__BASE + '/src/models');
@@ -26,4 +25,11 @@ app.use(routes.businesses);
 app.use(routes.users);
 app.use(routes.auth);
 app.use(routes.errors.unknown);
-app.listen(3000);
+console.log(settings.config.server);
+app.listen(settings.config.server.port, err => {
+  if (err){
+    console.log(err);
+  }
+
+  console.log('Server is running on port ' + settings.config.server.port);
+});
