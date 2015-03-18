@@ -22,7 +22,7 @@ authController.loginUser = (req, res, next) => {
     if (user) {
       req.session.regenerate(function(){
         req.session.user = user;
-        res.redirect('home');
+        res.redirect('/profile');
       });
     } else {
       req.session.error = 'Authentication failed';

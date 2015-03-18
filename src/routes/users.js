@@ -25,6 +25,15 @@ usersRoute.get('/signup', (req, res) => {
   });
 });
 
+usersRoute.get('/profile', (req, res) => {
+  console.log(req.session);
+  res.render('users/profile', {
+    title: "EJS example",
+    header: "Some users",
+    user: req.session.user || {}
+  });
+});
+
 usersRoute.post('/users/create', mw.users.validateCreateAttributes, usersController.postCreateUser);
 
 // usersRoute.post('/signup', mw.users.validateSignupField, usersController.postSignup);
