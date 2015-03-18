@@ -11,6 +11,9 @@
     "name": "Doron Segal",
     "email": "doron2402@gmail.com"
   },
+  "engines": {
+    "node": "0.10.35"
+  },
   "license": "ISC",
   "dependencies": {
     "babel": "^4.7.4",
