@@ -7,6 +7,6 @@ module.exports = {
   },
   server: {
     host: '',
-    port: process.env.PORT || 3000
+    port: (process.env && process.env.PORT) ? process.env.PORT || 5000
   }
 };
