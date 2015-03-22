@@ -15,6 +15,14 @@ authRoute.get('/login', csrfProtection, (req, res) => {
   });
 });
 
+authRoute.get('/signup/business', csrfProtection, (req, res) => {
+  res.render('auth/signup-business', {
+    title: "EJS example",
+    header: "Some businesses",
+    csrfToken: req.csrfToken()
+  });
+});
+
 authRoute.post('/login',parseForm, mw.auth.checkForEmailAndPasswordInBodyParams, authController.loginUser);
 
 authRoute.get('/checkAuth', (req, res) => {
