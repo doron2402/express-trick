@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
-let userSchema = mongoose.Schema({
+let Schema = mongoose.Schema;
+
+let userSchema = new Schema({
   firstName: String,
   lastName: String,
   username: {
