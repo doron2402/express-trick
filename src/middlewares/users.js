@@ -6,7 +6,8 @@ let userSchema = Joi.object().options({ abortEarly: false }).keys({
     password: Joi.string().min(8).required(),
     passwordConfirmation: Joi.any().valid(Joi.ref('password')).required().options({ language: { any: { allowOnly: 'must match password' }, label: 'Password Confirmation' } }).label('This label is not used because language.label takes precedence'),
     firstName: Joi.string().required(),
-    lastName: Joi.string().required()
+    lastName: Joi.string().required(),
+    confirm: Joi.number().optional()
 });
 
 
@@ -18,7 +19,7 @@ mwUsers.validateSignupField = (req, res, next)  => {
 };
 
 mwUsers.validateCreateAttributes = (req, res, next) => {
-
+  console.log(req.body);
   if (!req.body){
     return next('Missing Params');
   }

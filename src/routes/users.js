@@ -17,9 +17,17 @@ usersRoute.get('/users', function(req, res) {
   });
 });
 
-usersRoute.get('/signup', (req, res) => {
-  res.render('users', {
-    users: users,
+usersRoute.get('/users/signup', (req, res) => {
+  res.render('users/signup', {
+    title: "EJS example",
+    header: "Some users"
+  });
+});
+
+usersRoute.post('/users/signup', mw.users.validateCreateAttributes, usersController.postCreateUser);
+
+usersRoute.get('/users/forgot', (req, res) => {
+  res.render('users/forgot', {
     title: "EJS example",
     header: "Some users"
   });
