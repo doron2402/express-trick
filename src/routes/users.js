@@ -17,9 +17,15 @@ usersRoute.get('/users', function(req, res) {
   });
 });
 
-usersRoute.get('/signup', (req, res) => {
-  res.render('users', {
-    users: users,
+usersRoute.get('/users/signup', (req, res) => {
+  res.render('users/signup', {
+    title: "EJS example",
+    header: "Some users"
+  });
+});
+
+usersRoute.get('/users/forgot', (req, res) => {
+  res.render('users/forgot', {
     title: "EJS example",
     header: "Some users"
   });
@@ -33,6 +39,10 @@ usersRoute.get('/profile', (req, res) => {
     user: req.session.user || {}
   });
 });
+
+usersRoute.get('/users/vip', usersController.usersVip);
+
+usersRoute.post('/users/signup', mw.users.validateCreateAttributes, usersController.postCreateUser);
 
 usersRoute.post('/users/create', mw.users.validateCreateAttributes, usersController.postCreateUser);
 

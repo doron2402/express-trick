@@ -10,4 +10,11 @@ usersController.postCreateUser = (req, res) => {
   });
 };
 
+usersController.usersVip = (req, res) => {
+  return res.render('users/profile', {
+    title: "EJS example",
+    header: "Some users",
+    user: req.session.user || {}
+  });
+};
 module.exports = usersController;
